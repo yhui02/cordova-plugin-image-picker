@@ -202,7 +202,7 @@ public class MultiImageChooserActivity extends AppCompatActivity implements
             new AlertDialog.Builder(this)
                     .setTitle(maxSelectionCountErrorTitle)
                     .setMessage(String.format(maxSelectionCountErrorMessage, maxImageCount))
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("知道了", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
                         }
