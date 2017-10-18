@@ -11,9 +11,30 @@
         "type": "tag"
       },
       "/Users/xqq/work/qgutech/wislife-mobile-store/node_modules"
+    ],
+    [
+      {
+        "raw": "cordova-image-picker@git+https://github.com/yhui02/cordova-plugin-image-picker.git",
+        "scope": null,
+        "escapedName": "cordova-image-picker",
+        "name": "cordova-image-picker",
+        "rawSpec": "git+https://github.com/yhui02/cordova-plugin-image-picker.git",
+        "spec": "git+https://github.com/yhui02/cordova-plugin-image-picker.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:yhui02/cordova-plugin-image-picker.git",
+          "sshUrl": "git+ssh://git@github.com/yhui02/cordova-plugin-image-picker.git",
+          "httpsUrl": "git+https://github.com/yhui02/cordova-plugin-image-picker.git",
+          "gitUrl": "git://github.com/yhui02/cordova-plugin-image-picker.git",
+          "shortcut": "github:yhui02/cordova-plugin-image-picker",
+          "directUrl": "https://raw.githubusercontent.com/yhui02/cordova-plugin-image-picker/master/package.json"
+        }
+      },
+      "D:\\project\\eln4\\app\\wislife-mobile-client\\node_modules"
     ]
   ],
-  "_from": "cordova-image-picker@latest",
+  "_from": "git+https://github.com/yhui02/cordova-plugin-image-picker.git",
   "_id": "cordova-image-picker@2.2.5",
   "_inCache": true,
   "_location": "/cordova-image-picker",
@@ -29,23 +50,32 @@
   "_npmVersion": "5.1.0",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "cordova-image-picker",
+    "raw": "cordova-image-picker@git+https://github.com/yhui02/cordova-plugin-image-picker.git",
     "scope": null,
     "escapedName": "cordova-image-picker",
     "name": "cordova-image-picker",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
+    "rawSpec": "git+https://github.com/yhui02/cordova-plugin-image-picker.git",
+    "spec": "git+https://github.com/yhui02/cordova-plugin-image-picker.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:yhui02/cordova-plugin-image-picker.git",
+      "sshUrl": "git+ssh://git@github.com/yhui02/cordova-plugin-image-picker.git",
+      "httpsUrl": "git+https://github.com/yhui02/cordova-plugin-image-picker.git",
+      "gitUrl": "git://github.com/yhui02/cordova-plugin-image-picker.git",
+      "shortcut": "github:yhui02/cordova-plugin-image-picker",
+      "directUrl": "https://raw.githubusercontent.com/yhui02/cordova-plugin-image-picker/master/package.json"
+    }
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "http://registry.npmjs.org/cordova-image-picker/-/cordova-image-picker-2.2.5.tgz",
-  "_shasum": "51fab76dae790e6e7b3d828bb4e51f49b86b8c16",
+  "_resolved": "git+https://github.com/yhui02/cordova-plugin-image-picker.git#37a3f0b8d2856a404a0d8d6f30800c810de09d57",
+  "_shasum": "6db31d9d0577831508b8eb49cd33962f7adadd5d",
   "_shrinkwrap": null,
-  "_spec": "cordova-image-picker",
-  "_where": "/Users/xqq/work/qgutech/wislife-mobile-store/node_modules",
+  "_spec": "cordova-image-picker@git+https://github.com/yhui02/cordova-plugin-image-picker.git",
+  "_where": "D:\\project\\eln4\\app\\wislife-mobile-client\\node_modules",
   "author": {
     "name": "Daniel Ehrhardt"
   },

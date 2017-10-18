@@ -3,25 +3,25 @@
  *
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without 
+ * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following  conditions are met:
  *
- *   Redistributions of source code must retain the above copyright notice, 
+ *   Redistributions of source code must retain the above copyright notice,
  *      this list of conditions and the following disclaimer.
- *   Redistributions in binary form must reproduce the above copyright notice, 
- *      this list of conditions and the following  disclaimer in the 
+ *   Redistributions in binary form must reproduce the above copyright notice,
+ *      this list of conditions and the following  disclaimer in the
  *      documentation and/or other materials provided with the distribution.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING,  BUT NOT LIMITED TO, THE 
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
- * ARE DISCLAIMED. IN NO EVENT  SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR  BUSINESS 
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDIN G NEGLIGENCE OR OTHERWISE) 
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING,  BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT  SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR  BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDIN G NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH  DAMAGE
  *
  * Code modified by Andrew Stephan for Sync OnSet
@@ -112,7 +112,7 @@ public class MultiImageChooserActivity extends AppCompatActivity implements
     private int quality;
     private OutputType outputType;
 
-    private final ImageFetcher fetcher = new ImageFetcher();
+    private ImageFetcher fetcher;
 
     private int selectedColor = 0xff32b2e1;
     private boolean shouldRequestThumb = true;
@@ -141,7 +141,9 @@ public class MultiImageChooserActivity extends AppCompatActivity implements
         int width = display.getWidth();
 
         colWidth = width / 4;
-
+        fetcher = new ImageFetcher();
+        String maxSelectionCountErrorTitle = getString(fakeR.getId("string", "maximum_selection_count_error_title"));
+                String maxSelectionCountErrorMessage = getString(fakeR.getId("string", "maximum_selection_count_error_message"));
         GridView gridView = (GridView) findViewById(fakeR.getId("id", "gridview"));
         gridView.setOnItemClickListener(this);
         gridView.setOnScrollListener(new OnScrollListener() {
@@ -165,7 +167,7 @@ public class MultiImageChooserActivity extends AppCompatActivity implements
                     timestamp = System.currentTimeMillis();
 
                     // Limit if we go faster than a page a second
-                    shouldRequestThumb = speed < visibleItemCount;
+                    shouldRequestThumb = dt > 250;
                 }
             }
         });
@@ -197,7 +199,7 @@ public class MultiImageChooserActivity extends AppCompatActivity implements
         if (maxImages == 0 && isChecked) {
 			String maxSelectionCountErrorTitle = getString(fakeR.getId("string", "maximum_selection_count_error_title"));
             String maxSelectionCountErrorMessage = getString(fakeR.getId("string", "maximum_selection_count_error_message"));
-		
+
             isChecked = false;
             new AlertDialog.Builder(this)
                     .setTitle(maxSelectionCountErrorTitle)
@@ -501,6 +503,20 @@ public class MultiImageChooserActivity extends AppCompatActivity implements
             }
 
             if (shouldRequestThumb) {
+//                String maxSelectionCountErrorTitle = getString(fakeR.getId("string", "maximum_selection_count_error_title"));
+//                String maxSelectionCountErrorMessage = getString(fakeR.getId("string", "maximum_selection_count_error_message"));
+//
+//                new AlertDialog.Builder(MultiImageChooserActivity.this)
+//                    .setTitle(maxSelectionCountErrorTitle)
+//                    .setMessage(String.format(maxSelectionCountErrorMessage, 5))
+//                    .setPositiveButton("知道了", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            dialog.cancel();
+//                        }
+//                    })
+//                    .create()
+//                    .show();
+
                 fetcher.fetch(id, imageView, colWidth, rotate);
             }
 
